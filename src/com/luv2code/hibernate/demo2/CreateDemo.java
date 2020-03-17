@@ -28,7 +28,7 @@ public class CreateDemo {
 			Instructor tempInstructor = 
 					new Instructor("Chad", "Darby", "darby@luv2code.com");
 		
-		InstructorDetail tempInstructorDetail =
+			InstructorDetail tempInstructorDetail =
 					new InstructorDetail(
 							"http://www.luv2code.com/youtube",
 							"Luv 2 code!!!");		
@@ -62,8 +62,12 @@ public class CreateDemo {
 			System.out.println("Done!");
 			
 		}
-		
+		catch (Exception exc) {
+			exc.printStackTrace();
+		}
 		finally {
+			// handle connection leak issue
+			session.close();
 			factory.close();
 		}
 	}
